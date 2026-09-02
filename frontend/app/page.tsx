@@ -97,7 +97,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="crim"
                     value={formData.crim}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.00001"
                     min="0"
                   />
@@ -113,7 +113,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="zn"
                     value={formData.zn}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.1"
                     min="0"
                     max="100"
@@ -130,7 +130,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="indus"
                     value={formData.indus}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.01"
                     min="0"
                   />
@@ -145,7 +145,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="chas"
                     value={formData.chas}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   >
                     <option value="0">Not on River</option>
                     <option value="1">On River</option>
@@ -162,7 +162,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="nox"
                     value={formData.nox}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.001"
                     min="0"
                     max="1"
@@ -179,7 +179,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="dis"
                     value={formData.dis}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.0001"
                     min="0"
                   />
@@ -203,7 +203,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="rm"
                     value={formData.rm}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.001"
                     min="0"
                   />
@@ -219,7 +219,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="age"
                     value={formData.age}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.1"
                     min="0"
                     max="100"
@@ -236,7 +236,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="medv"
                     value={formData.medv}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.1"
                     min="0"
                   />
@@ -260,7 +260,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="rad"
                     value={formData.rad}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     min="1"
                     max="24"
                   />
@@ -276,7 +276,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="tax"
                     value={formData.tax}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     min="0"
                   />
                   <p className="text-xs text-gray-500 mt-1">Rate per $10,000</p>
@@ -291,7 +291,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="ptratio"
                     value={formData.ptratio}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.1"
                     min="0"
                   />
@@ -315,7 +315,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="b"
                     value={formData.b}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.01"
                     min="0"
                     max="400"
@@ -332,7 +332,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     name="lstat"
                     value={formData.lstat}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-2 bg-white text-gray-900 placeholder:text-gray-400 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     step="0.01"
                     min="0"
                     max="100"

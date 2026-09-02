@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
+/* This UI is designed light-only: white cards on a light gradient, with every
+   surface colour set explicitly. The create-next-app starter shipped a
+   prefers-color-scheme:dark override here, which flipped --foreground to near
+   white and left form fields inheriting white text on a white input — typed
+   values then looked like placeholder text. Declaring color-scheme: light keeps
+   the palette fixed and also renders native controls (number spinners, select
+   dropdowns) in their light variant. */
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -10,13 +18,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
