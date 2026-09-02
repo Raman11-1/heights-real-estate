@@ -1,8 +1,10 @@
-fastapi==0.103.2
-uvicorn[standard]==0.24.0
-joblib==1.3.2
-scikit-learn==1.3.2
-numpy==1.24.3
-pandas==2.0.3
-python-multipart==0.0.6
-pydantic==1.10.13
+# scikit-learn must match the version that produced Height.joblib (1.6.1).
+# Unpickling across versions raises InconsistentVersionWarning and is not guaranteed
+# to load correctly, so this pin is deliberate — regenerate the model if you bump it.
+scikit-learn==1.6.1
+numpy==2.0.2
+joblib==1.4.2
+
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4

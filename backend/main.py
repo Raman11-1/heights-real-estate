@@ -1,26 +1,30 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from pathlib import Path
 import joblib
+import os
 import uvicorn
 import numpy as np
 
 app = FastAPI(title="Height Estate Price Prediction API")
 
-# Configure CORS to allow requests from Next.js frontend
+# Configure CORS to allow requests from Next.js frontend.
+# allow_credentials must stay False while allow_origins is "*": browsers reject a
+# wildcard origin on a credentialed request, and this API sends no cookies or auth.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000",  # Next.js default port
-                  "https://*.vercel.app",  # For Vercel deployment
-        "*"],  # Allow all origins (you can restrict this later)
-    allow_credentials=True,
+    allow_origins=["*"],  # Public read-only API; restrict here if that changes
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Load your trained model
+# Load your trained model. Resolve relative to this file so the app starts the same
+# way whether it is launched from backend/ or from the repository root.
+MODEL_PATH = Path(__file__).resolve().parent / "Height.joblib"
 try:
-    model = joblib.load('Height.joblib')
+    model = joblib.load(MODEL_PATH)
     print("Model loaded successfully!")
 except Exception as e:
     print(f"Error loading model: {e}")
@@ -44,7 +48,8 @@ class HouseFeatures(BaseModel):
     # medv: float      # Median value of homes (target in training, but needed for reference)
 
 class PredictionResponse(BaseModel):
-    predicted_price: float
+    predicted_price: float       # In dollars
+    predicted_price_medv: float  # Raw model output, in $1000s (same scale as medv)
     formatted_price: str
 
 @app.get("/")
@@ -79,14 +84,17 @@ async def predict_price(features: HouseFeatures):
             # features.medv
         ]])
         
-        # Make prediction
-        prediction = model.predict(input_data)[0]
-        
+        # Make prediction. The model was trained on medv, which the dataset
+        # records in $1000s, so scale up to dollars before reporting a price.
+        prediction_medv = float(model.predict(input_data)[0])
+        prediction_usd = prediction_medv * 1000
+
         # Format price with commas
-        formatted_price = f"${prediction:,.2f}"
-        
+        formatted_price = f"${prediction_usd:,.2f}"
+
         return {
-            "predicted_price": float(prediction),
+            "predicted_price": prediction_usd,
+            "predicted_price_medv": prediction_medv,
             "formatted_price": formatted_price
         }
         
@@ -106,4 +114,5 @@ def get_model_info():
     }
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Hosts like Render assign the port at runtime via $PORT.
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
